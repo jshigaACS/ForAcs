@@ -1,0 +1,28 @@
+version: "2"
+
+services:
+    #jupyterLab環境
+    jupyter:
+        #image: jupyter/datascience-notebook:65761486d5d3
+        build: jun174siga/acs:jupyter_hub_acs
+        
+        command: >-
+            start.sh jupyter lab
+            --NotebookApp.password=sha1:e13b0b264f04:08fbc2c3d240427faa1eba695bcac886058d8495
+        ports:
+            - 80:8888
+        
+        working_dir: /home/jovyan/work
+        
+        volumes:
+            - .:/home/jovyan/work
+        
+        user: "1000"
+        
+        environment:
+            - NB_UID=1000
+            - NB_GID=1000
+            - CHOWN_HOME=yes
+
+        group_add:
+            - users   
