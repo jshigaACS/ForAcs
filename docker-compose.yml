@@ -4,7 +4,7 @@ services:
     #jupyterLab環境
     jupyter:
         #image: jupyter/datascience-notebook:65761486d5d3
-        build: jun174siga/acs:jupyter_hub_acs
+        image: jun174siga/acs:jupyter_hub_acs
         
         command: >-
             start.sh jupyter lab
